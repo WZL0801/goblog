@@ -12,7 +12,12 @@ type User struct {
 
 type Post struct {
 	gorm.Model
-	Title string
+	Title   string
 	Content string `gorm:"type:text"`
-	Tag string
+	Tag     string
+	Uid     uint
+}
+type UserInfo struct {
+	Username string `form:"username"`
+	Password string `form:"password"`
 }

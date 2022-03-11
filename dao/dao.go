@@ -26,7 +26,7 @@ type manager struct {
 var Mgr Manager
 
 func init() {
-	dsn := "root:111111@tcp(127.0.0.1:3306)/blog?charset=utf8&parseTime=true"
+	dsn := "root:111111@tcp(127.0.0.1:3306)/blog?charset=utf8&parseTime=true&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("failed db connect", err)
@@ -47,7 +47,7 @@ func (mgr *manager) Login(username string) model.User {
 	var user model.User
 	mgr.db.Where("username=?", username).First(&user)
 
-	fmt.Printf("1111%#v\n", user)
+	//fmt.Printf("1111%#v\n", user)
 	return user
 }
 
